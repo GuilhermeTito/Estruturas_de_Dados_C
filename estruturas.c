@@ -1,7 +1,40 @@
-#include <stdio.h>
 #include "estruturas.h"
 
-void nos()
+int entradaInteira()
 {
-    printf("Nos");
+    char entrada[256];
+    int num;
+    fgets(entrada, sizeof(entrada), stdin);
+    sscanf(entrada, "%d", &num);
+    return num;
+}
+
+void pilha()
+{
+
+}
+
+void fila()
+{
+
+}
+
+void lista()
+{
+
+}
+
+void listaLigada()
+{
+
+}
+
+void listaDuplamenteLigada()
+{
+
+}
+
+void arvoreBinaria()
+{
+
 }

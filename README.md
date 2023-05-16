@@ -1,6 +1,6 @@
 # Estruturas de Dados em C
 
-Sete estruturas de dados na linguagem C:
+Seis estruturas de dados na linguagem C:
 
 - Pilha
 - Fila
