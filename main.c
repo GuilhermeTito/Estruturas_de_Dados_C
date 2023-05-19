@@ -12,7 +12,7 @@ int main()
     while(op == OP_NAO_SELECIONADA)
     {
         menuPrincipal();
-        op = entradaInteira();
+        op = entradaInt();
 
         switch (op)
         {
@@ -33,7 +33,7 @@ int main()
                 break;
             
             case OP_LISTA_DUPLAMENTE_LIGADA:
-                listaDuplamenteLigada;
+                listaDuplamenteLigada();
                 break;
             
             case OP_ARVORE_BINARIA:
