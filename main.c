@@ -21,7 +21,7 @@ int main()
                 break;
             
             case OP_FILA:
-                fila();
+                //fila();
                 break;
             
             case OP_LISTA:

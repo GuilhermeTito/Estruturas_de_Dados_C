@@ -1,20 +1,22 @@
 #include "estruturas.h"
 
-int entradaInt() // Incompleto
+int entradaInt()
 {
     char entrada[256];
+    char *endptr;
     int num;
     fgets(entrada, sizeof(entrada), stdin);
-    sscanf(entrada, "%d", &num);
+    num = strtol(entrada, &endptr, 10);
     return num;
 }
 
-int entradaDouble() // Tem algo impedindo de funcionar corretamente
+double entradaDouble()
 {
     char entrada[256];
+    char *endptr;
     double num;
-    fgets(entrada, sizeof(entrada), stdin);
-    sscanf(entrada, "%lf", &num);
+    fgets(entrada, sizeof(entrada), stdin);    
+    num = strtod(entrada, &endptr);
     return num;
 }
 
@@ -40,9 +42,7 @@ void pilha()
         {
         case PILHA_OP_PUSH:
             printf("Digite um número a adicionar:\n");
-            //dado = entradaDouble();
-            scanf("%lf", &dado);
-            getchar();
+            dado = entradaDouble();
             pilhaPush(pilha, tamanho, posicao, dado);
             break;
         
@@ -69,7 +69,6 @@ void pilha()
         }
         op = OP_NAO_SELECIONADA;
     }
-
 }
 
 void pilhaMenu()
@@ -117,7 +116,7 @@ void pilhaModificar(double *pilha, int *tamanho, int *posicao)
 
 // FILA
 
-void fila()
+void filaMenu()
 {
     system("cls");
     printf("Fila\n");
