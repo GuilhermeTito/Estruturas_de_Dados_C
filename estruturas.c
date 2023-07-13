@@ -33,7 +33,7 @@ void pilha()
     *tamanho = 5;
     *posicao = 0;    
     
-    while(op == OP_NAO_SELECIONADA)
+    while(op != PILHA_OP_VOLTAR)
     {
         pilhaMenu();
         op = entradaInt();
@@ -57,10 +57,6 @@ void pilha()
             break;
         
         case PILHA_OP_VOLTAR:
-            free(tamanho);
-            free(posicao);
-            free(pilha);
-            return;
             break;
         
         default:
@@ -69,6 +65,9 @@ void pilha()
         }
         op = OP_NAO_SELECIONADA;
     }
+    free(tamanho);
+    free(posicao);
+    free(pilha);
 }
 
 void pilhaMenu()
@@ -119,17 +118,19 @@ void pilhaModificar(double *pilha, int *tamanho, int *posicao)
 void fila()
 {
     int op = OP_NAO_SELECIONADA;
+    int *vazia = malloc(sizeof(int));
     int *tamanho = malloc(sizeof(int));
     int *inicio = malloc(sizeof(int));
     int *fim = malloc(sizeof(int));
     double *fila = malloc(sizeof(double));
     double dado;
     
+    *vazia = true;
     *tamanho = 5;
     *inicio = 0;
     *fim = 0;
     
-    while(op != OP_NAO_SELECIONADA)
+    while(op != FILA_OP_VOLTAR)
     {
         filaMenu();
         op = entradaInt();
@@ -137,29 +138,30 @@ void fila()
         switch (op)
         {
         case FILA_OP_ADICIONAR:
-            filaAdicionar();
+            dado = entradaDouble();
+            filaAdicionar(fila, tamanho, inicio, fim, vazia, dado);
             break;
         case FILA_OP_REMOVER:
-            filaRemover();
+            filaRemover(tamanho, inicio, fim, vazia);
             break;
         case FILA_OP_MODIFICAR:
             filaModificar();
             break;
         case FILA_OP_IMPRIMIR:
-            filaImprimir();
+            filaImprimir(fila, tamanho, inicio, fim, vazia);
             break;
         case FILA_OP_VOLTAR:
-            free(tamanho);
-            free(inicio);
-            free(fim);
-            free(fila);
-            return;
             break;
         default:
             printf("Opção inválida!.\n");
             break;
         }
     }
+    free(vazia);
+    free(tamanho);
+    free(inicio);
+    free(fim);
+    free(fila);
 }
 
 void filaMenu()
@@ -173,14 +175,33 @@ void filaMenu()
     printf("%d - Voltar\n", FILA_OP_VOLTAR);
 }
 
-void filaAdicionar()
+void filaAdicionar(double *fila, int *tamanho, int *inicio, int *fim, int *vazia, double dado)
 {
+    if(*inicio == *fim && vazia == false)
+    {
+        printf("Fila cheia!\n");
+    }
+    else
+    {
+        fila[*fim] = dado;
+        (*fim)++;
 
+        if(*fim == tamanho) *fim = 0;
+    }
 }
 
-void filaRemover()
+void filaRemover(int *tamanho, int *inicio, int *fim, int *vazia)
 {
-    
+    if(vazia == true)
+    {
+        printf("Fila vazia!\n");
+    }
+    else
+    {
+        (*inicio)++;
+        if(*inicio == *tamanho) *inicio = 0;
+        if(*inicio == *fim) *vazia = true;
+    }
 }
 
 void filaModificar()
@@ -188,9 +209,12 @@ void filaModificar()
     
 }
 
-void filaImprimir()
+void filaImprimir(double *fila, int *tamanho, int *inicio, int *fim, int *vazia)
 {
-    
+    if(*vazia == true)
+    {
+        printf("Fila vazia!\n");
+    }    
 }
 
 // LISTA
