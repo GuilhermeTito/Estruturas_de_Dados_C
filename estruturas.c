@@ -25,13 +25,13 @@ double entradaDouble()
 void pilha()
 {
     int op = OP_NAO_SELECIONADA;
-
     int *tamanho = malloc(sizeof(int));
-    *tamanho = 5;
     int *posicao = malloc(sizeof(int));
-    *posicao = 0;
     double *pilha = malloc(*tamanho * sizeof(double));
     double dado;
+    
+    *tamanho = 5;
+    *posicao = 0;    
     
     while(op == OP_NAO_SELECIONADA)
     {
@@ -116,6 +116,52 @@ void pilhaModificar(double *pilha, int *tamanho, int *posicao)
 
 // FILA
 
+void fila()
+{
+    int op = OP_NAO_SELECIONADA;
+    int *tamanho = malloc(sizeof(int));
+    int *inicio = malloc(sizeof(int));
+    int *fim = malloc(sizeof(int));
+    double *fila = malloc(sizeof(double));
+    double dado;
+    
+    *tamanho = 5;
+    *inicio = 0;
+    *fim = 0;
+    
+    while(op != OP_NAO_SELECIONADA)
+    {
+        filaMenu();
+        op = entradaInt();
+
+        switch (op)
+        {
+        case FILA_OP_ADICIONAR:
+            filaAdicionar();
+            break;
+        case FILA_OP_REMOVER:
+            filaRemover();
+            break;
+        case FILA_OP_MODIFICAR:
+            filaModificar();
+            break;
+        case FILA_OP_IMPRIMIR:
+            filaImprimir();
+            break;
+        case FILA_OP_VOLTAR:
+            free(tamanho);
+            free(inicio);
+            free(fim);
+            free(fila);
+            return;
+            break;
+        default:
+            printf("Opção inválida!.\n");
+            break;
+        }
+    }
+}
+
 void filaMenu()
 {
     system("cls");
@@ -127,9 +173,29 @@ void filaMenu()
     printf("%d - Voltar\n", FILA_OP_VOLTAR);
 }
 
+void filaAdicionar()
+{
+
+}
+
+void filaRemover()
+{
+    
+}
+
+void filaModificar()
+{
+    
+}
+
+void filaImprimir()
+{
+    
+}
+
 // LISTA
 
-void lista()
+void listaMenu()
 {
     system("cls");
     printf("Lista\n");
@@ -143,7 +209,7 @@ void lista()
 
 // LISTA LIGADA
 
-void listaLigada()
+void listaLigadaMenu()
 {
     system("cls");
     printf("Lista Ligada\n");
@@ -156,7 +222,7 @@ void listaLigada()
 
 // LISTA DUPLAMENTE LIGADA
 
-void listaDuplamenteLigada()
+void listaDuplamenteLigadaMenu()
 {
     system("cls");
     printf("Lista Duplamente Ligada\n");
@@ -170,7 +236,7 @@ void listaDuplamenteLigada()
 
 // ÁRVORE BINÁRIA
 
-void arvoreBinaria()
+void arvoreBinariaMenu()
 {
 
 }

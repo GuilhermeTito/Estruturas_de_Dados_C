@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <locale.h>
 
-#include <windows.h> // Apenas para mudar a codificação de texto do terminal para UTF-8
+//#include <windows.h> // Apenas para mudar a codificação de texto do terminal para UTF-8
 
 // CONSTANTES
 enum
@@ -96,16 +96,25 @@ void pilhaModificar(double *pilha, int *tamanho, int *posicao);
 
 // Fila
 void fila();
+void filaMenu();
+void filaAdicionar();
+void filaRemover();
+void filaModificar();
+void filaImprimir();
 
 // Lista
 void lista();
+void listaMenu();
 
 
 // Lista ligada
 void listaLigada();
+void listaLigadaMenu();
 
 // Lista duplamente ligada
 void listaDuplamenteLigada();
+void listaDuplamenteLigadaMenu();
 
 // Árvore binária
 void arvoreBinaria();
+void arvoreBinariaMenu();

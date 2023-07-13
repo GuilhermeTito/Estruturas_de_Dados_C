@@ -4,7 +4,7 @@ void menuPrincipal();
 
 int main()
 {
-    SetConsoleOutputCP(CP_UTF8);
+    //SetConsoleOutputCP(CP_UTF8); //Acho que está causando problemas com Windows Defender, não tenho certeza.
     setlocale(LC_ALL, "pt-BR");
 
     int op = OP_NAO_SELECIONADA;
@@ -21,23 +21,23 @@ int main()
                 break;
             
             case OP_FILA:
-                //fila();
+                fila();
                 break;
             
             case OP_LISTA:
-                lista();
+                //lista();
                 break;
             
             case OP_LISTA_LIGADA:
-                listaLigada();
+                //listaLigada();
                 break;
             
             case OP_LISTA_DUPLAMENTE_LIGADA:
-                listaDuplamenteLigada();
+                //listaDuplamenteLigada();
                 break;
             
             case OP_ARVORE_BINARIA:
-                arvoreBinaria();
+                //arvoreBinaria();
                 break;
             
             case OP_SAIR:
